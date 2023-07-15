@@ -15,7 +15,8 @@ service ProjectManager @(path : '/projman') {
 
     entity Activity as projection on model.Activity;
 
-    @readonly
+    
+     @readonly
     entity SFSF_User       as
         select from UM_API.User {
             key userId,
@@ -26,6 +27,7 @@ service ProjectManager @(path : '/projman') {
                 department,
                 title
         };
+   //  entity SFSF_User as projection on model.Member;
 
     annotate SFSF_User with @(cds.odata.valuelist);
 }
